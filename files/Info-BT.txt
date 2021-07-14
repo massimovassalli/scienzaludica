@@ -1,0 +1,159 @@
+======
+NXT and BlueTooth on Linux
+======
+
+Most of this is obsolete unless you still run a really old distribution.
+Just check that a Bluetooth handler is running and things should be
+working by themselves.....
+
+
+If you still need it this is the Intro written for the initial version
+-------------------------------
+
+All of this is tested on a Linux Fedora Core 4 installation
+with this RPM loaded (see at the end for Fedor 6 and later)
+
+bluez-hcidump-1.18-1
+bluez-utils-2.15-7
+bluez-pin-0.24-2
+bluez-libs-devel-2.15-1
+bluez-libs-2.15-1
+
+To use a BlueTooth USB dongle to communicate with NXT.
+
+As Root:
+
+1) if bluetooth services are not on ("service bluetooth status" will
+    tell you)
+    #service bluetooth start
+
+2) attach dongle (wait a few seconds to allow configuration by the OS)
+
+3) check dongle
+  #hciconfig
+     hci0:   Type: USB
+        BD Address: 00:30:91:40:0D:44 ACL MTU: 192:8 SCO MTU: 64:8
+        UP RUNNING PSCAN ISCAN
+        RX bytes:101 acl:0 sco:0 events:13 errors:0
+        TX bytes:300 acl:0 sco:0 commands:13 errors:0
+or for a more complete description 
+  # hciconfig -a
+      hci0:   Type: USB
+         BD Address: 00:30:91:40:0D:44 ACL MTU: 192:8 SCO MTU: 64:8
+         UP RUNNING PSCAN ISCAN
+         RX bytes:101 acl:0 sco:0 events:13 errors:0
+         TX bytes:300 acl:0 sco:0 commands:13 errors:0
+         Features: 0xff 0xff 0x8f 0xf8 0x18 0x18 0x00 0x80
+         Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3
+         Link policy: RSWITCH HOLD SNIFF PARK
+         Link mode: SLAVE ACCEPT
+         Name: 'gip.fi.isc.cnr.it-0'
+         Class: 0x120104
+         Service Classes: Networking
+         Device Class: Computer, Desktop workstation
+         HCI Ver: 1.2 (0x2) HCI Rev: 0x639 LMP Ver: 1.2 (0x2) LMP Subver: 0x639
+         Manufacturer: Cambridge Silicon Radio (10)
+
+
+4) start BT on the client (e.g. switch on the NXT)
+
+5) scan
+  #hcitool scan
+   Scanning ...
+         00:16:53:00:60:55     NXT
+
+6)[It seems this is not necessary but I found this in some places]
+   You nedd to define your device in 
+     /etc/bluetooth/rfcomm.conf 
+-----------------
+  rfcomm0 {
+        # Automatically bind the device at startup
+        #bind no;
+        bind yes;
+        # Bluetooth address of the device
+        device   00:16:53:00:50:55;
+        # RFCOMM channel for the connection
+        channel 0;
+        # Description of the connection (The same as the device NAME)
+        comment "NXT";
+  }
+-----------------
+or use rfcomm bind <dev> <bt_addr> [chan]
+     #rfcomm bind rfcomm0  00:16:53:00:50:55 1
+
+You can check it with
+     #rfcomm
+       rfcomm0: 00:16:53:00:50:55 channel 1 clean    
+
+7) [Again. It seems this is not necessary]
+ register service (SP=Serial Port) 
+      #sdptool add --channel=1 SP
+   check with sdptool browse local
+   ........
+    Service Name: Serial Port
+    Service RecHandle: 0x10001
+    Service Class ID List:
+      "Serial Port" (0x1101)
+    Protocol Descriptor List:
+      "L2CAP" (0x0100)
+      "RFCOMM" (0x0003)
+        Channel: 1
+    Profile Descriptor List:
+      "Serial Port" (0x1101)
+        Version: 0x0100
+
+
+8) first time you connect to a device you need to exchange PIN
+   but the default setting doesn't seem to work(at least on FC4).
+
+   - in  /etc/bluetooth/hcid.conf  you need the lines 
+       security auto;
+       pin_helper /usr/bin/bluepin;
+   - if the /usr/bin/bluepin (or bluez-pin) that comes with bluez
+     doesn't work substitute it (can have a different name as long as it
+     the same in hcid.conf) with an executable file with the lines
+     --------------
+       VAR=`cat /etc/bluetooth/pin` 
+       echo PIN:$VAR 
+     -------------
+   - put a PIN code in /etc/bluetooth/pin (e.g. 1234, the default for
+     NXT)
+
+   - connect and give the same PIN from the device.
+
+   - the connection keys will be saved in /etc/bluetooth/link_key
+
+   As /etc/bluetooth/pin is mode 0600 and /etc/bluetooth is writable by
+   root only, this first connection has to be made as root. After the
+   link file is written anyone can connect to that BT device  
+
+
+Debug) [optional] Start Dump on BT port
+     # hcidump -X -V 
+   use CTRL-C to stop it. The hcidump manual will tell you all about it
+   and the options you can use to see what's going on when two BT
+   communicate.
+ 
+
+As User:
+
+Use NXTRC to interact with the brick or write a program that does......
+
+=============================================
+A note about Fedora Core 6 and later
+
+Under FC6 and  later everything changed. Both bluepin and bluez-pin are gone and
+have been replaced by "bluetooth-applet" that does all the work. You have to
+be sure it's running before attempting to connect to the NXT for the first
+time for the PIN exchange; after the first time the devices are coupled and
+you can do without it.  From what I have seen it's started by default by Gnome
+but not by KDE so remember to start it by hand. Another applet you can use is
+kbluetooth, made for KDE, I suppose.
+
+The RPM loaded are:
+bluez-libs
+bluez-gnome 
+bluez-libs-devel
+bluez-utils
+kdebluetooth
+

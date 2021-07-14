@@ -1,0 +1,91 @@
+#include "NXCDefs.h"
+
+int a, b, v, d, p, Vref, Vref2, s, z, w0, g, x, v2, y, l;
+unsigned long t0, t1, t;
+
+
+#define BT_CONN 1
+#define IB1 5
+#define IB2 6
+#define OB 1
+
+task speed() {
+while(1)   {
+b = SENSOR_2 - SENSOR_3
+z = (MotorRotationCount(OUT_B)+MotorRotationCount(OUT_A))/2
+v =  v/4 + 150*(b - d)			
+// V[k] = V[k-1] * (1-alpha) + (P2 - P1) * alpha / DeltaT    
+// alpha = 3/4, DeltaT= 5/1000 s
+v2 = v2*9/10 + 20 * (z - y)            
+// alpha = 1/10, DeltaT = 5/1000 s
+d = b
+y = z
+Wait(5)
+}
+}
+
+task command() {
+
+Vref2 = Vref
+
+w0 = 0
+while(1) {
+
+t0 = t + 20					// Set timing
+t = CurrentTick() - t1
+ReceiveRemoteNumber(IB1, false,  a)
+ReceiveRemoteNumber(IB2, false,  x)
+
+// read inputs
+
+
+
+p = (b - Vref + z/10  + a/3 )*4/5 + v/55  +  v2/8             
+// b: light sensors, Vref: reference to initial value of light sensors,
+// z: wheel encoders, a: input  v: light sensors speed (*/sec), 
+// v2: wheel encoders speed(degree/sec)
+g = (p + x/5)                   // Command engine B   (x: input)
+
+l = (p-x/5) 			// Command engine A
+
+if(l > 100) {
+l = 100
+}
+if (l<-100) {
+l = -100
+}
+
+if(g > 100) {
+g = 100
+}
+if (g<-100) {
+g = -100
+}
+//Saturations
+OnFwd(OUT_A, l)
+OnFwd(OUT_B, g)
+
+
+SendResponseNumber(OB, p)		//output
+while(t0 > t) {
+t = CurrentTick()
+}
+
+}
+}
+
+
+task main() {
+SetSensorType(S2, SENSOR_TYPE_LIGHT_ACTIVE)
+SetSensorMode(S2, SENSOR_MODE_RAW)
+SetSensorType(S3, SENSOR_TYPE_LIGHT_ACTIVE)
+SetSensorMode(S3, SENSOR_MODE_RAW)
+
+Wait(100)
+
+Vref = SENSOR_2 - SENSOR_3
+
+t1 = CurrentTick()
+
+Precedes(speed, command)
+}

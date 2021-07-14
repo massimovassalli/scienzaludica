@@ -1,0 +1,493 @@
+body {
+	margin-top: 0px;
+}
+dfn{
+display: none;
+}
+#menu_opzioni_acces {
+position: relative;
+margin: 0px 0px 0px 4px;
+min-height: 30px;
+height: 30px;
+margin: 0 auto;
+padding: 0;
+text-align: left;
+}
+.tabgen0{
+	width: 48.125em;
+}.tabgen1{
+	width: 11em;
+}.tabgen2{
+	width: 11.8em;
+}.tabgen3{
+	width: 9em;
+}#menu_opzioni_acces ul {
+margin: 0px;
+padding: 5px 0px 0px 0px;
+
+}
+
+#menu_opzioni_acces li {
+list-style-type: none;
+float: left;
+padding: 0px 0px 0px 0px;
+margin:0px 1px 0px 1px;
+border:solid 1px #003366;
+}
+
+#menu_opzioni_acces a:link, #menu_opzioni_acces a:visited {
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.7em;
+display: block;
+color:#ffffff;
+font-weight: normal;
+text-decoration: none;
+padding: 4px 4px 3px 4px;
+margin:0px 0px 0px 0px;
+background-color:#003366;
+}
+#menu_opzioni_acces a:hover, #menu_opzioni_acces a:visited:hover {
+text-decoration: underline;
+color:#ffffff;
+}
+#menu_opzioni_acces li.attivo {
+}
+#menu_opzioni_acces li.attivo a:link, #menu_opzioni_acces li.attivo a:visited {
+color:#000000;
+background-color:#ffffff;
+}
+#menu_opzioni_acces li.attivo a:hover, #menu_opzioni_acces li.attivo a:visited:hover {
+text-decoration: none;
+}
+/*----------------------------------------------------menu lingua---------------------------------------------------------------------*/
+#menu_opzioni_lingua {
+position: relative;
+min-height: 30px;
+height: 30px;
+margin: 0 auto ;
+padding: 0;
+text-align: center;
+}
+
+#menu_opzioni_lingua ul {
+margin: 0px;
+padding: 5px 0px 0px 0px;
+}
+
+#menu_opzioni_lingua li {
+list-style-type: none;
+float: left;
+padding: 0px 0px 0px 0px;
+margin:0px 2px 0px 2px;
+}
+
+#menu_opzioni_lingua a:link, #menu_opzioni_lingua a:visited {
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.7em;
+display: block;
+color:#ffffff;
+font-weight: normal;
+text-decoration: none;
+padding: 4px 3px 3px 3px;
+margin:0px 0px 0px 0px;
+background-color:#003366;
+border:1px solid #003366;
+}
+#menu_opzioni_lingua a:hover, #menu_opzioni_lingua a:visited:hover {
+text-decoration: underline;
+color:#ffffff;
+}
+#menu_opzioni_lingua li.attivo {
+}
+#menu_opzioni_lingua li.attivo a:link, #menu_opzioni_lingua li.attivo a:visited {
+color:#000000;
+background-color:#ffffff;
+border:1px solid #003366;
+}
+#menu_opzioni_lingua li.attivo a:hover, #menu_opzioni_lingua li.attivo a:visited:hover {
+text-decoration:none;
+}
+/*----------------------------------------------------lente------------------------------------------------------------------------------*/
+#menu_opzioni_lente {
+top:0px;
+width: 92px;
+height: 26px;
+margin: 0 auto;
+padding: 0;
+text-align: left;
+position: relative;
+}
+#menu_opzioni_lente ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+width: 92px;
+overflow: hidden;
+position: absolute;
+bottom: 2px;
+left: 5px;
+}
+#menu_opzioni_lente li{
+display: inline;
+}
+#menu_opzioni_lente a {
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.8em;
+display: block;
+float: left;
+padding: 2px 4px 2px 4px;
+margin: 0px 1px 0px 1px;
+color: #ffffff;
+text-decoration: none;
+font-weight: normal;
+background-color:#003366;
+border:1px solid #003366;
+}
+
+#menu_opzioni_lente a:hover {
+color: #ffffff;
+text-decoration:underline;
+}
+
+#menu_opzioni_lente a.attivo{
+color: #000000;
+background-color:#ffffff;
+border:1px solid #003366;
+}
+#menu_opzioni_lente a.attivo:hover{
+color: #000000;
+text-decoration:none;
+}
+
+/*----------------------------------------------------menu principale----------------------------------------------------------------------------*/
+#menu_principale {
+position: relative;
+margin: 0px 0px 0px 0px;
+min-height: 26px;
+background-color:#003366;
+padding:0px 0px 2px 0px ;
+}
+#menu_principale ul {
+margin: 0px 20px 0px 0px;
+padding: 5px 0px 0px 0px;
+
+}
+#menu_principale li {
+list-style-type: none;
+float: right;
+padding: 0px 0px 0px 0px;
+margin:0px 0px 4px 2px;
+text-align:center;
+}
+#menu_principale a:link, #menu_principale a:visited ,#menu_principale h3{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 1em;
+display: inline;
+color:#ffffff;
+font-weight: bold;
+text-decoration: none;
+padding: 6px 6px 4px 6px;
+margin:0px 0px 0px 0px;
+}
+#menu_principale a:hover, #menu_principale a:visited:hover {
+padding: 6px 6px 4px 6px;
+text-decoration: underline;
+color:#ffffff;
+}
+#menu_principale .currentpage {
+padding: 0px 0px 0px 0px;
+margin: 0px 0px 0px 0px;
+background-color:#ffffff;
+}
+#menu_principale li.currentpage {
+	height:19px;
+	margin-right: 4px;
+	padding: 1px 0px 0px 0px;
+	margin: 0px 0px 2px 0px;	
+}
+#menu_principale li.currentpage a:link, #menu_principale li.currentpage a:visited
+, #menu_principale li.currentpage h3{
+	height: 187px;
+	color: #000000;
+	padding-left: 6px;
+}
+#menu_principale li.currentpage a:hover, #menu_principale li.currentpage a:visited:hover {
+	padding: 6px 10px 4px 6px;
+}
+/*----------------------------------------------------menu SUB----------------------------------------------------------------------------*/
+#menu_principale_sub {
+position: relative;
+margin: 0px 0px 0px 4px;
+min-height: 26px;
+}
+#menu_principale_sub ul {
+margin: 0px 20px 0px 0px;
+padding: 1px 0px 0px 0px;
+
+}
+#menu_principale_sub li {
+list-style-type: none;
+float: right;
+padding: 0px 0px 0px 0px;
+margin:0px 2px 0px 2px;
+}
+#menu_principale_sub a:link, #menu_principale_sub a:visited {
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.8em;
+color:#000000;
+font-weight: normal;
+text-decoration: none;
+padding: 2px 8px 2px 18px;
+margin:0px 0px 0px 0px;
+}
+#menu_principale_sub a:hover, #menu_principale_sub a:visited:hover {
+text-decoration: none;
+padding: 3px 8px 2px 18px;
+color:#999999;
+}
+#menu_principale_sub .attivo {
+}
+#menu_principale_sub li.attivo {
+}
+#menu_principale_sub li.attivo a:link, #menu_principale_sub li.attivo a:visited {
+color:#000000;
+}
+#menu_principale_sub li.attivo a:hover, #menu_principale_sub li.attivo a:visited:hover {
+
+}
+/*----------------------------------------------------menu laterale-----------------------------------------------------------------------------*/
+table#menu_laterale td.sx {
+height:26px;
+width:7px;
+}
+table#menu_laterale td.dx {
+height:26px;
+width:7px;
+}
+table#menu_laterale td.centro{
+margin-top:2px;
+padding:4px 0px 0px 6px;
+background-color:#c2c2c2;
+}
+table#menu_laterale a,table#menu_laterale a:visited {
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.8em;
+color:#000000;
+font-weight: bold;
+text-decoration: none;
+}
+table#menu_laterale a:hover {
+color:#000000;
+text-decoration: underline;
+}
+table#menu_laterale td.centroattivo {
+padding:3px 0px 0px 6px;
+font-weight: bold;
+text-decoration: none;
+background-color:#003366;
+}
+table#menu_laterale td.sxattivo {
+height:26px;
+width:7px;
+background-color:#ffffff;
+}
+table#menu_laterale td.dxattivo {
+height:26px;
+width:7px;
+}
+table#menu_laterale td.centroattivo a, table#menu_laterale td.centroattivo a:visited{
+color:#ffffff;
+text-decoration: none;
+
+}
+table#menu_laterale td.centroattivo a:hover{
+text-decoration: none;
+}
+/*---------------------------------------menu lato Titolo, sx e dx--------------------------------------------*/
+#menu_lato_sx{
+width:7px;
+height:22px;
+}
+#menu_lato_dx{
+width:7px;
+height:22px;
+}
+.menu_lato_titolo{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.9em;
+color:#ff0000;
+font-weight: bold;
+text-decoration: none;
+background-color:#003366;
+height:18px;
+margin:0px;
+padding:4px 0px 4px 4px;
+vertical-align: middle;
+}
+.menu_lato_titolo A{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.9em;
+color:#ffffff;
+font-weight: bold;
+text-decoration: none;
+}
+.menu_lato_titolo a:hover, .menu_lato_titolo a:visited:hover{
+text-decoration: underline;}
+/*----------------------------------------------------menu laterale news-----------------------------------------------------------------------------*/
+#menu_laterale_news
+{
+padding:0px 4px 0px 5px;
+}
+.news_title{
+
+}
+.news_title:link, .news_title:visited{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.7em;
+color:#0000cc;
+font-weight: bold;
+text-decoration: none;
+}
+.news_title:hover, .news_title:visited:hover{
+text-decoration: underline;
+}
+.news_date{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.6em;
+color:#626262;
+font-weight: bold;
+text-decoration: none;
+BORDER-bottom: #003366 1px solid; 
+padding:0px 0px 2px 0px;
+}
+.news_descrizione{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.7em;
+color:#666666;
+font-weight: normal;
+text-decoration: none;
+padding:3px 0px 0px 0px;
+}
+/*----------------------------------------------------box centrale-----------------------------------------------------------------------------*/
+.box_cx{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.8em;
+color:#626262;
+font-weight: bold;
+text-decoration: none;
+BORDER-bottom: #003366 1px dashed; 
+padding:0px 0px 2px 2px;
+margin:0px 0px 4px 0px;
+}
+.box_cd_text{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.8em;
+color:#404040;
+font-weight: normal;
+text-decoration: none;
+text-align: justify;
+}
+/*---------------------------------------------------briciole di pane-----------------------------------------------------------------------------*/
+
+.menu_briciole_pane{
+position: relative;
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.7em;
+}
+.menu_briciole_pane a:link, .menu_briciole_pane a:visited {
+color:#000000;
+font-weight: normal;
+text-decoration: none;
+padding: 2px 4px 2px 4px;
+margin:0px 0px 0px 0px;
+background-color:#ffffff;
+border:1px solid #003366;
+}
+.menu_briciole_pane a:hover, .menu_briciole_pane a:visited:hover {
+text-decoration: underline;
+color:#333333;
+}
+/*---------------------------------------------------Testo_TITOLI-----------------------------------------------------------------------------*/
+.titolo{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.9em;
+color:#000000;
+font-weight: bold;
+text-decoration: none;
+}
+/*---------------------------------------------------Testo_mini-----------------------------------------------------------------------------*/
+.note{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.8em;
+color:#000000;
+font-weight: normal;
+text-decoration: none;
+}
+/*---------------------------------------------------Tabella-----------------------------------------------------------------------------*/
+.tabella{
+border: 1px solid #003366;
+margin:2px;
+padding:2px;
+}
+/*---------------------------------------------------link1-----------------------------------------------------------------------------*/
+.link_1{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 1em;
+color:#003366;
+font-weight: normal;
+text-decoration: none;
+}
+.link_1:hover{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 1em;
+color:#0099ff;
+font-weight: normal;
+text-decoration: underline;
+}
+/*---------------------------------------------------piedino-----------------------------------------------------------------------------*/
+.piedino{
+font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+font-size: 0.7em;
+color:#666666;
+font-weight: normal;
+text-decoration: none;
+}
+/*---------------------------------------------------------------------------------------------------------------------------------------*/
+#back_1{
+background-color:#bbbbbb;
+}
+#back_2{
+background-color:#bbbbbb;
+}
+span.arrow_down{
+	display: none;
+}
+span.arrow_down2{	
+}
+span.arrow_up{
+display: none;
+}
+span.arrow_up2{
+
+}
+#validator li{
+display:inline;
+  list-style-type:none;
+}
+.contatti{
+	font-family:verdana;
+	font-size:20px;
+}
+.contatti ul{
+	font-family:verdana;
+	font-size:14px;
+}
+.contatti li{
+}
+.contatti a, .contatti a:visited{
+	font-family:verdana;
+	font-size:20px;
+	color:red;
+}
+.contatti a:visited, .contatti a:visited:hover{
+}

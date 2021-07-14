@@ -1,0 +1,56 @@
+#include "NXCDefs.h"
+#define BT_CONN 1
+#define OB1 5
+#define OB2 6
+#define IB 1
+
+int p;
+int a;
+int x;
+int b;
+sub BTCheck(int conn){
+   if (!BluetoothStatus(conn)==NO_ERR){
+      TextOut(5,LCD_LINE2,"Error");
+      Wait(1000);
+      Stop(true);
+   }
+}
+
+
+task control(){
+SetSensor(S1, SENSOR_TOUCH)
+BTCheck(BT_CONN);
+//Check connection
+while(1) {
+
+b = MotorRotationCount(OUT_A)         //y axis
+x = -MotorRotationCount(OUT_B)        //x axis
+a = a + b/5				//incremental command of position
+			      
+ResetScreen()
+NumOut(0,LCD_LINE1, a)
+NumOut(0,LCD_LINE3, x)
+NumOut(0,LCD_LINE5, p)
+OnFwd(OUT_B, 2*x)
+OnFwd(OUT_A, -b)
+x = x * 4
+SendRemoteNumber(BT_CONN, OB1, a)    //send a
+Wait(30)
+ReceiveRemoteNumber(IB, true, p)     //reiceive p
+Wait(30)
+SendRemoteNumber(BT_CONN, OB2, x)    //send x\'e
+Wait(30)
+if(SENSOR_1==1) {
+RemotePlaySoundFile(BT_CONN, "bullethit.rso", false)
+}
+//send a command to play a sound file when the pressure sensor is activated
+Wait(20)
+}
+}
+
+task main() {
+
+
+Wait(100)
+Precedes(control)
+}
